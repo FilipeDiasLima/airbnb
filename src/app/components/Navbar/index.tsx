@@ -6,13 +6,13 @@ import { Logo } from "./Logo";
 import { Search } from "./Search";
 import { UserMenu } from "./UserMenu";
 import { SafeUser } from "@/types";
+import { Categories } from "./Categories";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
 }
 
 export function Navbar({ currentUser }: NavbarProps) {
-  console.log(currentUser);
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div
@@ -38,6 +38,7 @@ export function Navbar({ currentUser }: NavbarProps) {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 }

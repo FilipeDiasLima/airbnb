@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -12,9 +12,13 @@ import toast from "react-hot-toast";
 import { Button } from "../Button";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import { signIn } from "next-auth/react";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 export function RegisterModal() {
   const registerModel = useRegisterModal();
+  const loginModel = useLoginModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -49,6 +53,11 @@ export function RegisterModal() {
         setIsLoading(false);
       });
   };
+
+  const toggle = useCallback(() => {
+    loginModel.onOpen();
+    registerModel.onClose();
+  }, [loginModel, registerModel]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -88,13 +97,13 @@ export function RegisterModal() {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-        onClick={() => {}}
+        onClick={() => signIn("google")}
         label="Continue with Google"
         icon={FcGoogle}
         outline
       />
       <Button
-        onClick={() => {}}
+        onClick={() => signIn("github")}
         label="Continue with Github"
         icon={AiFillGithub}
         outline
@@ -110,7 +119,7 @@ export function RegisterModal() {
         <div className="justify-center flex flex-row items-center gap-2">
           <div>Already have an account?</div>
           <div
-            onClick={registerModel.onClose}
+            onClick={toggle}
             className="
             text-neutral-950
             cursor-pointer

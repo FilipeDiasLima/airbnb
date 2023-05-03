@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -18,8 +18,10 @@ import { useRouter } from "next/navigation";
 
 export function LoginModal() {
   const router = useRouter();
+
   const registerModel = useRegisterModal();
   const loginModel = useLoginModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -29,7 +31,7 @@ export function LoginModal() {
     watch,
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
+      email: "",
       password: "",
     },
   });
@@ -57,6 +59,11 @@ export function LoginModal() {
       }
     });
   };
+
+  const toggle = useCallback(() => {
+    loginModel.onClose();
+    registerModel.onOpen();
+  }, [loginModel, registerModel]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -87,13 +94,13 @@ export function LoginModal() {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-        onClick={() => {}}
+        onClick={() => signIn("google")}
         label="Continue with Google"
         icon={FcGoogle}
         outline
       />
       <Button
-        onClick={() => {}}
+        onClick={() => signIn("github")}
         label="Continue with Github"
         icon={AiFillGithub}
         outline
@@ -107,16 +114,16 @@ export function LoginModal() {
         "
       >
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>Already have an account?</div>
+          <div>First time using Airbnb?</div>
           <div
-            onClick={registerModel.onClose}
+            onClick={toggle}
             className="
             text-neutral-950
             cursor-pointer
             hover:underline
           "
           >
-            Log In
+            Create an account
           </div>
         </div>
       </div>
