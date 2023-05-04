@@ -7,6 +7,7 @@ import { Heading } from "../Heading";
 import { CategoryInput } from "../Inputs/CategoryInput";
 import { categories } from "../Navbar/Categories";
 import { Modal } from "./Modal";
+import { CountrySelect } from "../CountrySelect";
 
 enum STEPS {
   CATEGORY = 0,
@@ -43,6 +44,7 @@ export function RentModal() {
   });
 
   const category = watch("category");
+  const location = watch("location");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -109,7 +111,10 @@ export function RentModal() {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect />
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
       </div>
     );
   }
