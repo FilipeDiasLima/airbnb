@@ -3,14 +3,15 @@
 import { Container } from "@/app/components/Container";
 import { ListingHeader } from "@/app/components/Listings/ListingHeader";
 import { ListingInfo } from "@/app/components/Listings/ListingInfo";
+import { ListingReservation } from "@/app/components/Listings/ListingReservation";
 import { categories } from "@/app/components/Navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeListing, SafeUser } from "@/types";
-import { Reservation } from "@prisma/client";
+import { SafeListing, SafeReservation, SafeUser } from "@/types";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 const initialDateRange = {
@@ -20,7 +21,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & {
     user: SafeUser;
   };
@@ -36,7 +37,7 @@ export function ListingClient({
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
   const router = useRouter();
 
@@ -70,7 +71,7 @@ export function ListingClient({
 
       toast.success("Listing reserved!");
       setDateRange(initialDateRange);
-      router.refresh();
+      router.push("/trips");
     } catch (error) {
       toast.error("Something went wrong");
     } finally {
@@ -83,7 +84,7 @@ export function ListingClient({
   }, [listing.category]);
 
   useEffect(() => {
-    if (!dateRange.startDate && dateRange.endDate) {
+    if (dateRange.startDate && dateRange.endDate) {
       const dayCount = differenceInCalendarDays(
         dateRange.endDate,
         dateRange.startDate
@@ -134,7 +135,17 @@ export function ListingClient({
                 md:order-last
                 md:col-span-3
               "
-            ></div>
+            >
+              <ListingReservation
+                price={listing.price}
+                totalPrice={totalPrice}
+                onChangeDate={(value) => setDateRange(value)}
+                dateRange={dateRange}
+                onSubmit={onCreateReservation}
+                disabled={isLoading}
+                disabledDates={disabledDates}
+              />
+            </div>
           </div>
         </div>
       </div>
