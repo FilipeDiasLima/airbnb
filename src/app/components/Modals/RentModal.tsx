@@ -96,7 +96,7 @@ export function RentModal() {
       .then(() => {
         toast.success("Listing created!");
         router.refresh();
-        reset;
+        reset();
         setStep(STEPS.CATEGORY);
         rentModal.onClose();
       })

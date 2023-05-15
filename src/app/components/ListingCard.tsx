@@ -96,7 +96,10 @@ export function ListingCard({
           </div>
         </div>
 
-        <div className="font-semibold text-lg">
+        <div
+          className="font-semibold text-lg overflow-hidden whitespace-nowrap"
+          style={{ textOverflow: "ellipsis" }}
+        >
           {location?.region}, {location?.label}
         </div>
 
