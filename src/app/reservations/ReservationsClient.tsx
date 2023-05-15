@@ -9,38 +9,41 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { ListingCard } from "../components/ListingCard";
 
-interface TripsClientProps {
+interface ReservationsClientProps {
   reservations: SafeReservation[];
-  currentUser?: SafeUser | null;
+  currentUser: SafeUser | null;
 }
 
-export function TripsClient({ reservations, currentUser }: TripsClientProps) {
+export function ReservationsClient({
+  currentUser,
+  reservations,
+}: ReservationsClientProps) {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState("");
 
-  const onCancel = useCallback((id: string) => {
-    setDeletingId(id);
-    axios
-      .delete(`/api/reservations/${id}`)
-      .then(() => {
-        toast.success("Reservation cancelled");
-        router.refresh();
-      })
-      .catch((error: any) => {
-        toast.error(error.response.data.error);
-      })
-      .finally(() => {
-        setDeletingId("");
-      });
-  }, []);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
+
+      axios
+        .delete(`/api/reservations/${id}`)
+        .then(() => {
+          toast.success("Reservation cancelled");
+          router.refresh();
+        })
+        .catch(() => {
+          toast.error("Something went wrong");
+        })
+        .finally(() => {
+          setDeletingId("");
+        });
+    },
+    [router]
+  );
 
   return (
     <Container>
-      <Heading
-        title="Trips"
-        subtitle="Where you've been and where you're going"
-      />
-
+      <Heading title="Reservations" subtitle="Bookings on your properties" />
       <div
         className="
           mt-10
@@ -62,7 +65,7 @@ export function TripsClient({ reservations, currentUser }: TripsClientProps) {
             actionId={reservation.id}
             onAction={onCancel}
             disabled={deletingId === reservation.id}
-            actionLabel="Cancel reservation"
+            actionLabel="Cancel guest reservation"
             currentUser={currentUser}
           />
         ))}

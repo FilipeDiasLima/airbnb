@@ -17,7 +17,8 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 
 export function RegisterModal() {
   const registerModel = useRegisterModal();
-  const loginModel = useLoginModal();
+  const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -45,6 +46,8 @@ export function RegisterModal() {
       .post("/api/register", data)
       .then(() => {
         toast.success("Registered!");
+        registerModal.onClose();
+        loginModal.onOpen();
       })
       .catch((error) => {
         toast.error(error);
@@ -55,9 +58,9 @@ export function RegisterModal() {
   };
 
   const toggle = useCallback(() => {
-    loginModel.onOpen();
+    loginModal.onOpen();
     registerModel.onClose();
-  }, [loginModel, registerModel]);
+  }, [loginModal, registerModel]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">

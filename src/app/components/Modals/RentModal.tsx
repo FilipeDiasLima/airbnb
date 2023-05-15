@@ -91,19 +91,21 @@ export function RentModal() {
 
     setIsLoading(true);
 
-    try {
-      const response = await axios.post("/api/listings", data);
-
-      toast.success("Listing created!");
-      router.refresh();
-      reset;
-      setStep(STEPS.CATEGORY);
-      rentModal.onClose();
-    } catch (error) {
-      toast.error("Something went wrong!");
-    } finally {
-      setIsLoading(false);
-    }
+    axios
+      .post("/api/listings", data)
+      .then(() => {
+        toast.success("Listing created!");
+        router.refresh();
+        reset;
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+      })
+      .catch(() => {
+        toast.error("Something went wrong!");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const actionLabel = useMemo(() => {

@@ -28,7 +28,7 @@ export function EmptyState({
         items-center
       "
     >
-      <Heading title={title} subtitle={subtitle} />
+      <Heading center title={title} subtitle={subtitle} />
       <div className="w-48 mt-4">
         {showReset && (
           <Button
