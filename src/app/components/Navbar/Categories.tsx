@@ -22,37 +22,37 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
   {
-    label: "Beach",
+    label: "Praia",
     icon: TbBeach,
     description: "This property is close to the beach!",
   },
   {
-    label: "Windmills",
+    label: "Moinhos",
     icon: GiWindmill,
     description: "This property has windmills!",
   },
   {
-    label: "Modern",
+    label: "Moderno",
     icon: MdOutlineVilla,
     description: "This property is modern!",
   },
   {
-    label: "Countryside",
+    label: "No interior",
     icon: TbMountain,
     description: "This property is in the countryside!",
   },
   {
-    label: "Pools",
+    label: "Piscinas",
     icon: TbPool,
     description: "This property has a pool!",
   },
   {
-    label: "Islands",
+    label: "Ilhas",
     icon: GiIsland,
     description: "This property is on an island!",
   },
   {
-    label: "Lake",
+    label: "Lago",
     icon: GiBoatFishing,
     description: "This property is close to a lake!",
   },
@@ -62,37 +62,37 @@ export const categories = [
     description: "This property has skiing activities!",
   },
   {
-    label: "Castles",
+    label: "Castelo",
     icon: GiCastle,
     description: "This property is in a castle!",
   },
   {
-    label: "Camping",
+    label: "Acampamento",
     icon: GiForestCamp,
     description: "This property has camping activities!",
   },
   {
-    label: "Arctic",
+    label: "Frio",
     icon: BsSnow,
     description: "This property is in the arctic!",
   },
   {
-    label: "Cave",
+    label: "Caverna",
     icon: GiCaveEntrance,
     description: "This property is in a cave!",
   },
   {
-    label: "Desert",
+    label: "Deserto",
     icon: GiCactus,
     description: "This property is in the desert!",
   },
   {
-    label: "Barns",
+    label: "Celeiros",
     icon: GiBarn,
     description: "This property is in the barn!",
   },
   {
-    label: "Lux",
+    label: "Luxo",
     icon: IoDiamond,
     description: "This property is luxurious!",
   },

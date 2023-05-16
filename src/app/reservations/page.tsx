@@ -17,8 +17,8 @@ export default async function Reservations() {
   if (reservations.length === 0) {
     return (
       <EmptyState
-        title="No reservations found"
-        subtitle="Looks like you have no reservations on your properties."
+        title="Sem reservas"
+        subtitle="Parece que não há reservas nas suas comodidades."
       />
     );
   }

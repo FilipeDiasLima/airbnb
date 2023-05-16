@@ -17,8 +17,8 @@ export default async function Properties() {
   if (listings.length === 0) {
     return (
       <EmptyState
-        title="No properties found"
-        subtitle="Looks like you have no properties."
+        title="Sem anúncios"
+        subtitle="Parece que você ainda não tem nenhum anúncio."
       />
     );
   }

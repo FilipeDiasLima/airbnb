@@ -36,7 +36,7 @@ export function CountrySelect({ onChange, value }: CountrySelectProps) {
             primary25: "#ffe4e6",
           },
         })}
-        placeholder="Anywhere"
+        placeholder="Insira o país"
         isClearable
         options={getAll()}
         value={value}

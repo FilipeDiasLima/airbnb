@@ -20,7 +20,7 @@ export function Search() {
   const locationLabel = useMemo(() => {
     if (locationValue) return getByValue(locationValue as string)?.label;
 
-    return "Anywhere";
+    return "Qualquer lugar";
   }, [getByValue, locationValue]);
 
   const durationLabel = useMemo(() => {
@@ -33,16 +33,21 @@ export function Search() {
         diff = 1;
       }
 
-      return `${diff} Days`;
+      return `${diff > 1 ? diff + " Dias" : diff + " Dia"}`;
     }
 
-    return "Any Week";
+    return "Qualquer semana";
   }, [startDate, endDate]);
 
   const guestLabel = useMemo(() => {
-    if (guestCount) return `${guestCount} Guests`;
+    if (guestCount)
+      return `${
+        Number(guestCount) > 1
+          ? guestCount + " Hóspedes"
+          : guestCount + " Hóspede"
+      }`;
 
-    return "Add Guests";
+    return "Hóspedes?";
   }, [guestCount]);
 
   return (

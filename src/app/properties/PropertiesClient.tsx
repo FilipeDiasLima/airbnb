@@ -39,7 +39,7 @@ export function PropertiesClient({
 
   return (
     <Container>
-      <Heading title="Properties" subtitle="List of your properties" />
+      <Heading title="Anúncios" subtitle="Aqui está seus anúncios" />
 
       <div
         className="
@@ -61,7 +61,7 @@ export function PropertiesClient({
             actionId={listing.id}
             onAction={onCancel}
             disabled={deletingId === listing.id}
-            actionLabel="Delete property"
+            actionLabel="Remover anúncio"
             currentUser={currentUser}
           />
         ))}

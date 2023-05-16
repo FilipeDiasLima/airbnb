@@ -52,7 +52,7 @@ export function UserMenu({ currentUser }: UserMenuProps) {
             cursor-pointer
           "
         >
-          Airbnb your home
+          Anuncie seu espaço no Airbnb
         </div>
         <div
           onClick={toggleOpen}
@@ -99,28 +99,31 @@ export function UserMenu({ currentUser }: UserMenuProps) {
               <>
                 <MenuItem
                   onClick={() => router.push("/trips")}
-                  label="My trips"
+                  label="Minhas viagens"
                 />
                 <MenuItem
                   onClick={() => router.push("/favorites")}
-                  label="My favorites"
+                  label="Meus favoritos"
                 />
                 <MenuItem
                   onClick={() => router.push("/reservations")}
-                  label="My reservations"
+                  label="Minhas reservas"
                 />
                 <MenuItem
                   onClick={() => router.push("/properties")}
-                  label="My properties"
+                  label="Meus anúncios"
                 />
-                <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
+                <MenuItem
+                  onClick={rentModal.onOpen}
+                  label="Anunciar no Airbnb"
+                />
                 <hr />
-                <MenuItem onClick={() => signOut()} label="Logout" />
+                <MenuItem onClick={() => signOut()} label="Sair" />
               </>
             ) : (
               <>
-                <MenuItem onClick={loginModal.onOpen} label="Login" />
-                <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
+                <MenuItem onClick={loginModal.onOpen} label="Entrar" />
+                <MenuItem onClick={registerModal.onOpen} label="Cadastre-se" />
               </>
             )}
           </div>

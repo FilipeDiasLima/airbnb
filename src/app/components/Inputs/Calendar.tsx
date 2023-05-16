@@ -1,6 +1,7 @@
 "use client";
 
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
+import ptBR from "date-fns/locale/pt-BR";
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
@@ -14,6 +15,8 @@ interface CalendarProps {
 export function Calendar({ disabledDates, onChange, value }: CalendarProps) {
   return (
     <DateRange
+      locale={ptBR}
+      weekdayDisplayFormat="iiiii"
       rangeColors={["#262626"]}
       ranges={[value]}
       date={new Date()}

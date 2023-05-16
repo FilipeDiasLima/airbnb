@@ -16,10 +16,7 @@ export function FavoritesClient({
 }: FavoritesClientProps) {
   return (
     <Container>
-      <Heading
-        title="Favorites"
-        subtitle="List of places you have favorited!"
-      />
+      <Heading title="Favoritos" subtitle="Seus lugares favoritos!" />
       <div
         className="
           mt-10

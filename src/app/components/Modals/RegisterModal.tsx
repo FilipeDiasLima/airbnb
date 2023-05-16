@@ -64,7 +64,7 @@ export function RegisterModal() {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Heading title="Bem-vindo ao Airbnb" subtitle="Faça seu cadastro!" />
       <InputDefault
         id="email"
         label="Email"
@@ -76,7 +76,7 @@ export function RegisterModal() {
       />
       <InputDefault
         id="name"
-        label="Name"
+        label="Nome"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -85,7 +85,7 @@ export function RegisterModal() {
       />
       <InputDefault
         id="password"
-        label="Password"
+        label="Senha"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -101,13 +101,13 @@ export function RegisterModal() {
       <hr />
       <Button
         onClick={() => signIn("google")}
-        label="Continue with Google"
+        label="Continue com o Google"
         icon={FcGoogle}
         outline
       />
       <Button
         onClick={() => signIn("github")}
-        label="Continue with Github"
+        label="Continue com o Github"
         icon={AiFillGithub}
         outline
       />
@@ -120,7 +120,7 @@ export function RegisterModal() {
         "
       >
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>Already have an account?</div>
+          <div>Já possui uma conta?</div>
           <div
             onClick={toggle}
             className="
@@ -129,7 +129,7 @@ export function RegisterModal() {
             hover:underline
           "
           >
-            Log In
+            Entrar
           </div>
         </div>
       </div>
@@ -140,8 +140,8 @@ export function RegisterModal() {
     <Modal
       disabled={isLoading}
       isOpen={registerModel.isOpen}
-      title="Register"
-      actionLabel="Continue"
+      title="Cadastro"
+      actionLabel="Continuar"
       onClose={registerModel.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

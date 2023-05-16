@@ -34,8 +34,8 @@ export function ListingReservation({
       "
     >
       <div className="flex flex-row items-center gap-1 p-4">
-        <div className="text-2xl font-semibold">$ {price}</div>
-        <div className="font-light text-neutral-600">night</div>
+        <div className="text-2xl font-semibold">R$ {price}</div>
+        <div className="font-light text-neutral-600">noite</div>
       </div>
       <hr />
       <Calendar
@@ -45,7 +45,7 @@ export function ListingReservation({
       />
       <hr />
       <div className="p-4">
-        <Button disabled={disabled} label="Reserve" onClick={onSubmit} />
+        <Button disabled={disabled} label="Reservar" onClick={onSubmit} />
       </div>
       <div
         className="
@@ -59,7 +59,7 @@ export function ListingReservation({
         "
       >
         <div>Total</div>
-        <div>$ {totalPrice}</div>
+        <div>R$ {totalPrice}</div>
       </div>
     </div>
   );

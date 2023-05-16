@@ -43,7 +43,7 @@ export function ReservationsClient({
 
   return (
     <Container>
-      <Heading title="Reservations" subtitle="Bookings on your properties" />
+      <Heading title="Reservas" subtitle="Procure pelas suas reservas" />
       <div
         className="
           mt-10
@@ -65,7 +65,7 @@ export function ReservationsClient({
             actionId={reservation.id}
             onAction={onCancel}
             disabled={deletingId === reservation.id}
-            actionLabel="Cancel guest reservation"
+            actionLabel="Cancelar reserva do hóspede"
             currentUser={currentUser}
           />
         ))}

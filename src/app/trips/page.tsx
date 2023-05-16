@@ -17,8 +17,8 @@ export default async function Trip() {
   if (reservations.length === 0) {
     return (
       <EmptyState
-        title="No trips found"
-        subtitle="Looks like you havent reserved any trips."
+        title="Nenhuma viagem encontrada"
+        subtitle="Parece que você ainda não tem viagens."
       />
     );
   }

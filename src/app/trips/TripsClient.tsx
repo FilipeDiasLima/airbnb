@@ -37,8 +37,8 @@ export function TripsClient({ reservations, currentUser }: TripsClientProps) {
   return (
     <Container>
       <Heading
-        title="Trips"
-        subtitle="Where you've been and where you're going"
+        title="Viagens"
+        subtitle="Onde você esteve e para onde você vai"
       />
 
       <div
@@ -62,7 +62,7 @@ export function TripsClient({ reservations, currentUser }: TripsClientProps) {
             actionId={reservation.id}
             onAction={onCancel}
             disabled={deletingId === reservation.id}
-            actionLabel="Cancel reservation"
+            actionLabel="Cancelar reserva"
             currentUser={currentUser}
           />
         ))}

@@ -67,7 +67,7 @@ export function LoginModal() {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome comeback" subtitle="Login to your account!" />
+      <Heading title="Bem-vindo de volta" subtitle="Entre na sua conta!" />
       <InputDefault
         id="email"
         label="Email"
@@ -79,7 +79,7 @@ export function LoginModal() {
       />
       <InputDefault
         id="password"
-        label="Password"
+        label="Senha"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -95,13 +95,13 @@ export function LoginModal() {
       <hr />
       <Button
         onClick={() => signIn("google")}
-        label="Continue with Google"
+        label="Continue com o Google"
         icon={FcGoogle}
         outline
       />
       <Button
         onClick={() => signIn("github")}
-        label="Continue with Github"
+        label="Continue com o Github"
         icon={AiFillGithub}
         outline
       />
@@ -114,7 +114,7 @@ export function LoginModal() {
         "
       >
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>First time using Airbnb?</div>
+          <div>Primeira vez no Airbnb?</div>
           <div
             onClick={toggle}
             className="
@@ -123,7 +123,7 @@ export function LoginModal() {
             hover:underline
           "
           >
-            Create an account
+            Faça seu cadastro
           </div>
         </div>
       </div>
@@ -134,8 +134,8 @@ export function LoginModal() {
     <Modal
       disabled={isLoading}
       isOpen={loginModel.isOpen}
-      title="Login"
-      actionLabel="Continue"
+      title="Entrar"
+      actionLabel="Continuar"
       onClose={loginModel.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
