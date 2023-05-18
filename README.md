@@ -58,7 +58,7 @@ $ yarn dev
 
 <div align="center">
   <img src="./public/images/anuncios.png"  width="400px" />
+  <img src="./public/images/cadastrar.png"  width="400px" />
   <img src="./public/images/viagens.png"  width="400px" />
-   <img src="./public/images/cadastrar.png"  width="400px" />
   <img src="./public/images/home.png"  width="400px" />
 </div>
