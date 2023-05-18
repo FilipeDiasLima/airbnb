@@ -23,6 +23,7 @@
 </div>
 
 <h3>Como rodar:</h3>
+
 ```
 Faça o clone do projeto
 $ git clone https://github.com/FilipeDiasLima/airbnb.git
