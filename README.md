@@ -19,8 +19,8 @@
 </ul>
 
 <div align="center">
-  <img src="./public/images/casa_lago.png"  width="440px" />
-  <img src="./public/images/reserva.png"  width="440px" />
+  <img src="./public/images/casa_lago.png"  width="400px" />
+  <img src="./public/images/reserva.png"  width="400px" />
 </div>
 
 <h3>Como rodar:</h3>
@@ -57,8 +57,8 @@ $ yarn dev
 </p>
 
 <div align="center">
-  <img src="./public/images/anuncios.png"  width="440px" />
-  <img src="./public/images/viagens.png"  width="440px" />
-   <img src="./public/images/cadastrar.png"  width="440px" />
-  <img src="./public/images/home.png"  width="440px" />
+  <img src="./public/images/anuncios.png"  width="400px" />
+  <img src="./public/images/viagens.png"  width="400px" />
+   <img src="./public/images/cadastrar.png"  width="400px" />
+  <img src="./public/images/home.png"  width="400px" />
 </div>
