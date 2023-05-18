@@ -53,7 +53,7 @@ export function ListingInfo({
           gap-2
         "
         >
-          <div>Hosted by {user?.name}</div>
+          <div>Anunciado por {user?.name}</div>
           <Avatar src={user?.image} />
         </div>
 

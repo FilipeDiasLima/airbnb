@@ -2,6 +2,7 @@
 
 import { SafeListing, SafeReservation, SafeUser } from "@/types";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -56,7 +57,9 @@ export function ListingCard({
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
 
-    return `${format(start, "PP")} - ${format(end, "PP")}`;
+    return `${format(start, "PP", { locale: ptBR })} - ${format(end, "PP", {
+      locale: ptBR,
+    })}`;
   }, [reservation]);
 
   return (
@@ -108,8 +111,8 @@ export function ListingCard({
         </div>
 
         <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">$ {price}</div>
-          {!reservation && <div className="font-light">night</div>}
+          <div className="font-semibold">R$ {price}</div>
+          {!reservation && <div className="font-light">noite</div>}
         </div>
 
         {onAction && actionLabel && (
