@@ -4,7 +4,7 @@
 
 <hr/>
 
-<h6 align="center">Esse projeto clone do Airbnb, não está 100% fiel ao original.</h6>
+<h6 align="center">Esse projeto clone do Airbnb, o programa se trata de uma aplicação fullstack com typescript.</h6>
 
 <img src="./public/images/home.png" />
 
@@ -15,6 +15,7 @@
   <li>TailwindCss</li>
   <li>Prisma</li>
   <li>Next-Auth</li>
+  <li>Typescript</li>
 </ul>
 
 <div align="center">
